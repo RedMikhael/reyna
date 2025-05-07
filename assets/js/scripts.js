@@ -140,14 +140,16 @@ document.addEventListener('DOMContentLoaded', function () {
     form.addEventListener('submit', function (event) {
         event.preventDefault();
 
+        // Prompt for PIN before processing the image upload
         const password = prompt("Enter Admin PIN (Hint: Birthday):");
         if (!password || password.trim().toLowerCase() !== '0224') {
             alert("Incorrect PIN. Upload cancelled.");
             return;
         }
 
+        // Ensure both image and caption are provided
         if (imageInput.files.length === 0 || captionInput.value.trim() === '' ||
-        titleInput.value.trim() === '') {
+            titleInput.value.trim() === '') {
             alert('Please provide both an image and a caption.');
             return;
         }
